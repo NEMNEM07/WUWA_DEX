@@ -1,0 +1,13 @@
+{
+  "season": "예시 시즌명 (실제 시즌으로 교체)",
+  "updated": "2026-07-29",
+  "floors": [
+    {
+      "floor": "역경의 탑 예시 층",
+      "boss": "예시 보스명",
+      "weaknesses": ["송곳니 (예시)", "회절 (예시)"],
+      "notes": "예시 공략 메모. 보스 패턴/주의사항 요약.",
+      "recommendedTeam": ["example-char", "example-sub1", "example-sub2"]
+    }
+  ]
+}

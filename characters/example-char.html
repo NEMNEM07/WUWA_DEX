@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>캐릭터 상세 | 공명 데이터베이스</title>
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <a href="../index.html" class="site-logo">
+    <span class="logo-mark">明潮</span>
+    <span>공명 데이터베이스</span>
+  </a>
+  <nav class="site-nav">
+    <a href="../index.html" class="active">캐릭터</a>
+    <a href="../tower.html">역경의 탑</a>
+    <a href="../hologram.html">죽음의 노래</a>
+  </nav>
+</header>
+
+<main>
+
+  <div class="char-hero">
+    <div class="char-hero__portrait">
+      <img id="heroPortrait" src="" alt="">
+    </div>
+    <div>
+      <div class="char-hero__tags">
+        <span class="tag tag--element" id="tagElement"></span>
+        <span class="tag tag--weapon" id="tagWeapon"></span>
+        <span class="tag" id="tagRarity"></span>
+      </div>
+      <h1 class="char-hero__name" id="heroName"></h1>
+      <p class="char-hero__desc" id="heroDesc"></p>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="section__title">필요 육성 재화</div>
+    <div class="material-grid" id="materialGrid"></div>
+  </section>
+
+  <section class="section">
+    <div class="section__title">추천 스탯 우선순위</div>
+    <table class="stat-table">
+      <thead>
+        <tr>
+          <th>스탯</th>
+          <th>우선순위</th>
+        </tr>
+      </thead>
+      <tbody id="statTableBody"></tbody>
+    </table>
+  </section>
+
+  <section class="section">
+    <div class="section__title">추천 에코 세트</div>
+    <div class="echo-grid" id="echoGrid"></div>
+  </section>
+
+  <section class="section">
+    <div class="section__title">추천 파티 조합</div>
+    <div class="team-grid" id="teamGrid"></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  본 사이트는 비공식 팬 제작 정보 사이트이며, 쿤룬 스튜디오(Kuro Games)와 관련이 없습니다.
+</footer>
+
+<script>
+  const CHAR_ID = "example-char"; // 이 파일을 복사해 새 캐릭터를 만들 때 이 값만 바꾸세요.
+</script>
+<script src="../js/character-page.js"></script>
+</body>
+</html>

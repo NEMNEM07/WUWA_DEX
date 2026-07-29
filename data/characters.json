@@ -1,0 +1,45 @@
+[
+  {
+    "id": "example-char",
+    "name": "예시 캐릭터",
+    "rarity": 5,
+    "element": "송곳니 (예시)",
+    "weapon": "장검",
+    "icon": "../assets/icons/example-char.png",
+    "portrait": "../assets/portraits/example-char.png",
+    "role": "메인 딜러",
+    "shortDesc": "예시용 캐릭터 설명입니다. 실제 캐릭터 데이터로 교체하세요.",
+    "materials": [
+      { "name": "예시 재료 A", "count": 46 },
+      { "name": "예시 재료 B", "count": 60 },
+      { "name": "위상 결정", "count": 12 },
+      { "name": "그림자 결정", "count": 6 }
+    ],
+    "statPriority": [
+      { "stat": "공격력%", "priority": "S" },
+      { "stat": "크리티컬 확률", "priority": "S" },
+      { "stat": "크리티컬 피해", "priority": "S" },
+      { "stat": "공명 효율", "priority": "A" },
+      { "stat": "체력%", "priority": "C" }
+    ],
+    "recommendedEchoes": [
+      {
+        "set": "예시 에코셋 4피스",
+        "desc": "예시 세트효과 설명. 실제 효과로 교체하세요.",
+        "priority": "최우선"
+      },
+      {
+        "set": "예시 에코셋 2+2 조합",
+        "desc": "예시 대체 조합 설명.",
+        "priority": "대체 옵션"
+      }
+    ],
+    "teamComps": [
+      {
+        "role": "메인 딜러 조합",
+        "members": ["example-char", "example-sub1", "example-sub2"],
+        "desc": "예시 파티 설명. 딜러/서포터 역할과 로테이션 요약."
+      }
+    ]
+  }
+]

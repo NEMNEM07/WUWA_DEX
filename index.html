@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>명조 육성 & 파티 조합 가이드</title>
+<meta name="description" content="명조: 워더링 웨이브즈 캐릭터 육성, 에코 추천, 파티 조합, 역경의 탑/죽음의 노래 공략 정보">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <a href="index.html" class="site-logo">
+    <span class="logo-mark">明潮</span>
+    <span>공명 데이터베이스</span>
+  </a>
+  <nav class="site-nav">
+    <a href="index.html" class="active">캐릭터</a>
+    <a href="tower.html">역경의 탑</a>
+    <a href="hologram.html">죽음의 노래</a>
+  </nav>
+</header>
+
+<main>
+  <div class="page-eyebrow">// CHARACTER DATABASE</div>
+  <h1 class="page-title">캐릭터 육성 & 파티 조합</h1>
+  <p class="page-sub">캐릭터를 선택하면 추천 육성 재화, 에코, 스탯 우선순위, 파티 조합을 확인할 수 있습니다.</p>
+
+  <div class="nav-card-row">
+    <a class="nav-card" href="tower.html">
+      <div class="nav-card__label">// TOWER STATUS</div>
+      <div class="nav-card__title">역경의 탑</div>
+      <div class="nav-card__desc">현재 층 몹 정보, 약점 속성, 추천 조합</div>
+    </a>
+    <a class="nav-card" href="hologram.html">
+      <div class="nav-card__label">// HOLOGRAM STATUS</div>
+      <div class="nav-card__title">죽음의 노래</div>
+      <div class="nav-card__desc">현재 내성 정보, 추천 속성 조합</div>
+    </a>
+  </div>
+
+  <div class="filter-bar" id="filterBar">
+    <button class="filter-chip active" data-filter="all">전체</button>
+    <!-- 속성/무기 필터 칩은 main.js에서 데이터 기반으로 자동 생성됩니다 -->
+  </div>
+
+  <div class="char-grid" id="charGrid">
+    <!-- main.js가 characters.json을 읽어 카드 렌더링 -->
+  </div>
+</main>
+
+<footer class="site-footer">
+  본 사이트는 비공식 팬 제작 정보 사이트이며, 쿤룬 스튜디오(Kuro Games)와 관련이 없습니다.
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

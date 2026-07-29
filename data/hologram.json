@@ -1,0 +1,12 @@
+{
+  "season": "예시 시즌명 (실제 시즌으로 교체)",
+  "updated": "2026-07-29",
+  "resistances": [
+    {
+      "stage": "죽음의 노래 예시 스테이지",
+      "resistantElements": ["송곳니 (예시)"],
+      "notes": "예시 내성 메모. 추천 속성/조합 요약.",
+      "recommendedTeam": ["example-char", "example-sub1", "example-sub2"]
+    }
+  ]
+}
