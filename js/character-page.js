@@ -48,6 +48,56 @@ function renderStatPriority(c) {
       </tr>`
     )
     .join("");
+  const oneLiner = document.getElementById("statOneLiner");
+  if (oneLiner) oneLiner.textContent = c.statOneLiner || "";
+  const note = document.getElementById("statNote");
+  if (note) note.textContent = c.statNote || "";
+}
+
+function renderWeapons(c) {
+  const wrap = document.getElementById("weaponGrid");
+  if (!wrap || !c.weapons) return;
+  wrap.innerHTML = c.weapons
+    .map(
+      (w) => `
+      <div class="echo-card">
+        <div class="echo-card__set">${w.rank}순위 · ${w.name}</div>
+        <div class="echo-card__desc">${"★".repeat(w.rarity)}</div>
+        <div class="echo-card__priority">${w.tag}</div>
+      </div>`
+    )
+    .join("");
+}
+
+function renderSkillPriority(c) {
+  const wrap = document.getElementById("skillPriorityGrid");
+  if (!wrap || !c.skillPriority) return;
+  const { top, second } = c.skillPriority;
+  wrap.innerHTML = `
+    <div class="echo-card">
+      <div class="echo-card__set">1순위 (Lv.${top.level})</div>
+      <div class="echo-card__desc">${top.skills.join(" · ")}</div>
+    </div>
+    <div class="echo-card">
+      <div class="echo-card__set">2순위 (Lv.${second.level})</div>
+      <div class="echo-card__desc">${second.skills.join(" · ")}</div>
+    </div>`;
+}
+
+function renderResonanceChain(c) {
+  const wrap = document.getElementById("resonanceChainGrid");
+  if (!wrap || !c.resonanceChain) return;
+  wrap.innerHTML = c.resonanceChain
+    .map(
+      (r) => `
+      <div class="echo-card">
+        <div class="echo-card__set">${r.seq}돌 · ${r.name}</div>
+        <div class="echo-card__priority">${r.gain}</div>
+      </div>`
+    )
+    .join("");
+  const note = document.getElementById("resonanceChainNote");
+  if (note) note.textContent = c.resonanceChainNote || "";
 }
 
 function renderEchoBuild(c) {
@@ -123,6 +173,9 @@ async function initCharacterPage() {
     renderStatPriority(c);
     renderEchoBuild(c);
     renderEchoes(c);
+    renderWeapons(c);
+    renderSkillPriority(c);
+    renderResonanceChain(c);
     renderTeams(c, all);
   } catch (err) {
     document.querySelector("main").innerHTML =
