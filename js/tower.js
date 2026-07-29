@@ -1,58 +1,39 @@
-async function loadCharactersMap() {
-  const res = await fetch("data/characters.json");
-  const list = await res.json();
-  return Object.fromEntries(list.map((c) => [c.id, c]));
-}
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>역경의 탑 공략 | 띵조위키</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
 
-async function loadTower() {
-  const res = await fetch("data/tower.json");
-  if (!res.ok) throw new Error("역경의 탑 데이터를 불러오지 못했습니다.");
-  return res.json();
-}
+<header class="site-header">
+  <a href="index.html" class="site-logo">
+    <span class="logo-mark">明潮</span>
+    <span>띵조위키</span>
+  </a>
+  <nav class="site-nav">
+    <a href="index.html">캐릭터</a>
+    <a href="tower.html" class="active">역경의 탑</a>
+    <a href="hologram.html">죽음의 노래</a>
+  </nav>
+</header>
 
-function renderTeamMembers(ids, charMap) {
-  return ids
-    .map((id) => {
-      const c = charMap[id];
-      const icon = c ? c.icon : "";
-      const name = c ? c.name : id;
-      return `<div class="team-card__member" title="${name}"><img src="${icon}" alt="${name}" onerror="this.style.opacity=0"></div>`;
-    })
-    .join("");
-}
+<main>
+  <div class="page-eyebrow">// TOWER STATUS</div>
+  <h1 class="page-title">역경의 탑</h1>
+  <p class="page-sub">현재 시즌 층별 몹 정보, 약점 속성, 추천 조합을 정리합니다.</p>
 
-async function init() {
-  try {
-    const [data, charMap] = await Promise.all([loadTower(), loadCharactersMap()]);
+  <div class="updated-badge" id="updatedBadge"></div>
 
-    document.getElementById("updatedBadge").textContent = `${data.season} · 업데이트 ${data.updated}`;
+  <div id="floorList"></div>
+</main>
 
-    const list = document.getElementById("floorList");
-    list.innerHTML = data.floors
-      .map(
-        (f) => `
-        <div class="boss-card">
-          <div class="boss-card__header">
-            <div class="boss-card__name">${f.boss}</div>
-            <div class="boss-card__floor mono">${f.floor}</div>
-          </div>
-          <p style="color:var(--text-secondary); font-size:0.88rem;">${f.notes}</p>
-          <div class="weakness-row">
-            ${f.weaknesses.map((w) => `<span class="tag tag--element">${w}</span>`).join("")}
-          </div>
-          <div class="team-card" style="margin-top:14px; background:var(--bg-elevated);">
-            <div class="team-card__members">${renderTeamMembers(f.recommendedTeam, charMap)}</div>
-            <div class="team-card__info">
-              <div class="team-card__role">추천 조합</div>
-            </div>
-          </div>
-        </div>`
-      )
-      .join("");
-  } catch (err) {
-    document.getElementById("floorList").innerHTML =
-      `<p style="color:var(--accent-danger)">${err.message}</p>`;
-  }
-}
+<footer class="site-footer">
+  본 사이트는 비공식 팬 제작 정보 사이트이며, 쿤룬 스튜디오(Kuro Games)와 관련이 없습니다.
+</footer>
 
-init();
+<script src="js/tower.js"></script>
+</body>
+</html>

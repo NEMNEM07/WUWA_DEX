@@ -12,7 +12,7 @@ function findById(list, id) {
 }
 
 function renderHero(c) {
-  document.title = `${c.name} - 육성 및 파티 조합 | 공명 데이터베이스`;
+  document.title = `${c.name} - 육성 및 파티 조합 | 띵조위키`;
   document.getElementById("heroPortrait").src = c.portrait;
   document.getElementById("heroPortrait").alt = c.name;
   document.getElementById("heroName").textContent = c.name;
