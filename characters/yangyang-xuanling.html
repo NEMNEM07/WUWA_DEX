@@ -38,21 +38,30 @@
   </div>
 
   <section class="section">
-    <div class="section__title">필요 육성 재화</div>
+    <div class="section__title">필요 육성 재화 (각성 총합)</div>
+    <p id="materialNote" style="color:var(--text-muted); font-size:0.8rem; margin-bottom:14px;"></p>
     <div class="material-grid" id="materialGrid"></div>
   </section>
 
   <section class="section">
-    <div class="section__title">추천 스탯 우선순위</div>
+    <div class="section__title">추천 스탯 목표치</div>
     <table class="stat-table">
       <thead>
         <tr>
           <th>스탯</th>
-          <th>우선순위</th>
+          <th>목표</th>
         </tr>
       </thead>
       <tbody id="statTableBody"></tbody>
     </table>
+  </section>
+
+  <section class="section">
+    <div class="section__title">코스트별 에코 주옵션 추천</div>
+    <div class="echo-grid" id="echoBuildGrid"></div>
+    <p style="color:var(--text-secondary); font-size:0.85rem; margin-top:14px;">
+      <strong>서브옵션 우선순위:</strong> <span id="echoSubstatPriority"></span>
+    </p>
   </section>
 
   <section class="section">

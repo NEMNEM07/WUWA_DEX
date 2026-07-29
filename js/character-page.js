@@ -24,15 +24,17 @@ function renderHero(c) {
 
 function renderMaterials(c) {
   const wrap = document.getElementById("materialGrid");
-  wrap.innerHTML = c.materials
+  const note = document.getElementById("materialNote");
+  wrap.innerHTML = c.materials.total
     .map(
       (m) => `
       <div class="material-item">
         <span>${m.name}</span>
-        <span class="material-item__count">×${m.count}</span>
+        <span class="material-item__count">×${m.count.toLocaleString()}</span>
       </div>`
     )
     .join("");
+  if (note) note.textContent = c.materials.note || "";
 }
 
 function renderStatPriority(c) {
@@ -42,10 +44,34 @@ function renderStatPriority(c) {
       (s) => `
       <tr>
         <td>${s.stat}</td>
-        <td class="mono-val">${s.priority}</td>
+        <td class="mono-val">${s.target}</td>
       </tr>`
     )
     .join("");
+}
+
+function renderEchoBuild(c) {
+  const wrap = document.getElementById("echoBuildGrid");
+  if (!wrap || !c.echoBuild) return;
+  const slots = [
+    { key: "cost4", label: "코스트 4 (메인 에코)" },
+    { key: "cost3", label: "코스트 3" },
+    { key: "cost1", label: "코스트 1" },
+  ];
+  wrap.innerHTML = slots
+    .map((s) => {
+      const d = c.echoBuild[s.key];
+      if (!d) return "";
+      return `
+        <div class="echo-card">
+          <div class="echo-card__set">${s.label}</div>
+          <div class="echo-card__desc"><strong>주옵션:</strong> ${d.mainStat}</div>
+          <div class="echo-card__desc">${d.note}</div>
+        </div>`;
+    })
+    .join("");
+  const sub = document.getElementById("echoSubstatPriority");
+  if (sub) sub.textContent = c.echoBuild.substatPriority || "";
 }
 
 function renderEchoes(c) {
@@ -95,6 +121,7 @@ async function initCharacterPage() {
     renderHero(c);
     renderMaterials(c);
     renderStatPriority(c);
+    renderEchoBuild(c);
     renderEchoes(c);
     renderTeams(c, all);
   } catch (err) {
